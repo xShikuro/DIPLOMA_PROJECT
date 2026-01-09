@@ -1,0 +1,79 @@
+
+/* Reviews */
+.reviews-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.review-form {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.rating-input {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.rating-input span {
+    cursor: pointer;
+    color: var(--text-dim);
+    transition: var(--transition);
+}
+
+.rating-input span:hover,
+.rating-input span.active {
+    color: var(--neon-yellow);
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.review-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-meta {
+    flex: 1;
+}
+
+.review-author {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.review-date {
+    color: var(--text-dim);
+    font-size: 0.875rem;
+}
+
+.review-rating {
+    color: var(--neon-yellow);
+}

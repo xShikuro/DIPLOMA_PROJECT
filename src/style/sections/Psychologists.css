@@ -1,0 +1,139 @@
+
+/* Psychologists */
+
+
+
+#psychologists{
+    padding: 40px;
+}
+
+
+.psychologists-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.psychologists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.psychologist-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.psychologist-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 0, 64, 0.3);
+    box-shadow: var(--shadow-glow);
+}
+
+.psychologist-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-red), var(--neon-pink));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+.psychologist-card:hover::before {
+    transform: scaleX(1);
+}
+
+.psychologist-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.psychologist-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.psychologist-info {
+    flex: 1;
+}
+
+.psychologist-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.psychologist-specialization {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.psychologist-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--neon-yellow);
+    margin-bottom: 1rem;
+}
+
+.psychologist-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.psychologist-btn {
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.psychologist-btn:hover {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+}
+
+.psychologist-btn.primary {
+    background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+    border: none;
+    color: white;
+}
+
+.psychologist-btn.primary:hover {
+    box-shadow: var(--shadow-glow);
+}

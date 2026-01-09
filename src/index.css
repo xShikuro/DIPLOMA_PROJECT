@@ -1,0 +1,77 @@
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #121826;
+  --bg-tertiary: #1a2332;
+  --bg-card: rgba(26, 35, 50, 0.7);
+  --text-primary: #e0e6ed;
+  --text-secondary: #8892b0;
+  --text-dim: #64748b;
+  --neon-red: #ff0040;
+  --neon-pink: #ff6b6b;
+  --neon-crimson: #ff4757;
+  --neon-orange: #ff6348;
+  --neon-yellow: #ffa502;
+  --border-color: rgba(136, 146, 176, 0.2);
+  --shadow-glow: 0 0 20px rgba(255, 0, 64, 0.3);
+  --shadow-glow-pink: 0 0 20px rgba(255, 107, 107, 0.3);
+  --shadow-glow-crimson: 0 0 20px rgba(255, 71, 87, 0.3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 8px;
+  --max-width: 1400px;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 0, 64, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(255, 71, 87, 0.05) 0%, transparent 50%);
+}
+
+
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+  color: white;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+}
+

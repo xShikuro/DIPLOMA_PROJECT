@@ -1,0 +1,87 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --neon-red: #ff0040;
+    --neon-pink: #ff66cc;
+    --text-secondary: #b3b3b3;
+    --transition: all 0.3s ease;
+    --shadow-glow: 0 0 20px rgba(255, 0, 64, 0.4);
+  }
+  
+  /* экран */
+  .welcome-screen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+  
+  /* сетка */
+  .welcome-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(rgba(255, 0, 64, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 64, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+  }
+  
+  @keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+  
+  /* контент */
+  .welcome-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+  }
+  
+  /* logo with grsdient */
+  .welcome-logo {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff0040, #ff66cc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  /* Title */
+  .welcome-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+  
+  /* Button */
+  .welcome-btn {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .welcome-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 0, 64, 0.5);
+  }
+  
