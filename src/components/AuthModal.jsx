@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../style/components/AuthModal.css";
-import { db } from "../data/firebase"; // путь к твоему файлу firebase.js
-import { collection, addDoc } from "firebase/firestore";
+import { registerUser, loginUser } from "../api/auth";
+
+
+
 
 function AuthModal({ onClose }) {
   const [tab, setTab] = useState("login");
@@ -15,38 +17,83 @@ function AuthModal({ onClose }) {
 
   const log = (msg) => setLogs((prev) => [...prev, msg]);
 
-  // Обновление данных формы
+
+
+ {/* UPDATING-INFO */}
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Регистрация пользователя и отправка в Firebase
+
+
+
+
+
+
   const handleRegister = async (e) => {
     e.preventDefault();
+  
     if (formData.password !== formData.confirmPassword) {
-      log("Пароли не совпадают!");
+      log("Passwords do not match!");
       return;
     }
-
+  
     try {
-      const docRef = await addDoc(collection(db, "users"), {
+      await registerUser({
         nickname: formData.nickname,
         email: formData.email,
-        password: formData.password // Для простоты, без хеширования (только для теста!)
+        password: formData.password,
       });
-      log(`Пользователь зарегистрирован с ID: ${docRef.id}`);
+  
+      const loginRes = await loginUser({
+        email: formData.email,
+        password: formData.password,
+      });
+  
+      localStorage.setItem("token", loginRes.data.token);
+      log("Registration successful!");
       onClose();
+      window.location.reload();
     } catch (e) {
-      log("Ошибка регистрации: " + e.message);
+      log("Registration error: " + (e.response?.data?.message || e.message));
     }
   };
 
-  // Для логина пока просто закрытие модалки
-  const handleLogin = (e) => {
-    e.preventDefault();
-    log(`Логин: ${formData.email}`);
+
+
+
+
+
+
+
+
+const handleLogin = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await loginUser({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    localStorage.setItem("token", res.data.token);
+    log("Login successful!");
+    console.log(res.data);
     onClose();
-  };
+    window.location.reload();
+  } catch (e) {
+    log("Login error: " + (e.response?.data?.message || e.message));
+  }
+};
+
+
+
+
+
+
+
+
+
 
   return (
     <div
@@ -177,7 +224,7 @@ function AuthModal({ onClose }) {
           </form>
         )}
 
-        {/* Логи */}
+        {/* LOGs */}
         {logs.length > 0 && (
           <div style={{ marginTop: "10px", borderTop: "1px solid #ccc", paddingTop: "10px" }}>
             {logs.map((l, i) => (

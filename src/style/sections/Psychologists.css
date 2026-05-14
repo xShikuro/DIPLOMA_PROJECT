@@ -1,139 +1,262 @@
-
-/* Psychologists */
-
-
-
-#psychologists{
-    padding: 40px;
+#psychologists {
+ padding: 40px;
+    background: transparent;
 }
 
-
+/* HEADER */
 .psychologists-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.filter-bar {
-    display: flex;
-    gap: 1rem;
-}
-
+/* SELECT */
 .filter-select {
-    padding: 0.5rem 1rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
+    padding: 8px 14px;
+    background: rgba(15,23,42,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    color: #e2e8f0;
     cursor: pointer;
 }
 
+/* CHIPS */
+.filter-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #94a3b8;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.chip:hover {
+    border-color: #ff4dd2;
+    color: #ff4dd2;
+}
+
+.chip.active {
+    background: linear-gradient(135deg, #ff0040, #ff4dd2);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 0, 100, 0.3);
+}
+
+/* GRID */
 .psychologists-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
 }
 
+/* CARD */
 .psychologist-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
     padding: 1.5rem;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    transition: 0.3s;
 }
 
 .psychologist-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 0, 64, 0.3);
-    box-shadow: var(--shadow-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 40px rgba(255, 0, 100, 0.15);
 }
 
-.psychologist-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--neon-red), var(--neon-pink));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-}
-
-.psychologist-card:hover::before {
-    transform: scaleX(1);
-}
-
+/* HEADER */
 .psychologist-header {
     display: flex;
-    align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    align-items: center;
 }
 
+/* AVATAR */
 .psychologist-avatar {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--border-color);
+    border: 2px solid rgba(255,255,255,0.1);
 }
 
-.psychologist-info {
-    flex: 1;
-}
-
+/* TEXT */
 .psychologist-name {
+    color: white;
     font-weight: 600;
-    margin-bottom: 0.25rem;
 }
 
 .psychologist-specialization {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
+    color: #94a3b8;
+    font-size: 13px;
 }
 
+/* RATING */
 .psychologist-rating {
+    margin: 12px 0;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--neon-yellow);
-    margin-bottom: 1rem;
+    gap: 6px;
 }
 
+.psychologist-rating i {
+    color: #facc15;
+}
+
+.psychologist-rating span {
+    color: #cbd5f5;
+    font-size: 13px;
+}
+
+/* BUTTONS */
 .psychologist-actions {
     display: flex;
-    gap: 0.75rem;
+    gap: 10px;
 }
 
 .psychologist-btn {
     flex: 1;
-    padding: 0.5rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-secondary);
-    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #94a3b8;
     cursor: pointer;
-    transition: var(--transition);
 }
 
 .psychologist-btn:hover {
-    border-color: var(--neon-red);
-    color: var(--neon-red);
+    border-color: #ff4dd2;
+    color: #ff4dd2;
 }
 
 .psychologist-btn.primary {
-    background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+    background: linear-gradient(135deg, #ff0040, #ff4dd2);
     border: none;
     color: white;
 }
 
-.psychologist-btn.primary:hover {
-    box-shadow: var(--shadow-glow);
+
+
+
+
+/* OVERLAY */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    animation: fadeIn 0.2s ease;
+}
+
+/* CARD */
+.modal-card {
+    width: 360px;
+
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    animation: scaleIn 0.25s ease;
+}
+
+/* HEADER */
+.modal-header {
+    padding: 14px 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: white;
+}
+
+.modal-close {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+/* CONTENT */
+.modal-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* AVATAR */
+.modal-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+
+    border: 3px solid #ff4dd2;
+    box-shadow: 0 0 15px rgba(255,0,100,0.4);
+}
+
+/* TEXT */
+.modal-spec {
+    color: #94a3b8;
+    margin-bottom: 10px;
+}
+
+.modal-rating {
+    margin-bottom: 15px;
+    color: #ff4dd2;
+}
+
+/* INFO */
+.modal-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.modal-info span {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+.modal-info strong {
+    color: white;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

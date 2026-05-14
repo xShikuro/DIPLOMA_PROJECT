@@ -1,0 +1,345 @@
+.sessions-page {
+  padding: 40px;
+  color: #fff;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sessions-header {
+  margin-bottom: 28px;
+}
+
+.sessions-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sessions-header p {
+  color: #aeb6c2;
+  max-width: 760px;
+  line-height: 1.6;
+}
+
+.sessions-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* blocks */
+.calendar-block,
+.events-block,
+.stat-box {
+  background: rgba(20, 26, 42, 0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.calendar-block,
+.events-block {
+  padding: 24px;
+}
+
+.block-header,
+.sub-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.block-header {
+  margin-bottom: 18px;
+}
+
+.block-header h2,
+.sub-block-header h3 {
+  margin: 0;
+}
+
+.sub-block-header {
+  margin-bottom: 14px;
+}
+
+.sub-block-header span,
+.events-count {
+  font-size: 13px;
+  color: #aeb6c2;
+}
+
+/* add button */
+.add-btn {
+  padding: 11px 16px;
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 77, 109, 0.12);
+  color: #ff7aa2;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.add-btn:hover {
+  background: rgba(255, 77, 109, 0.22);
+  box-shadow: 0 0 14px rgba(255, 77, 109, 0.28);
+  transform: translateY(-1px);
+}
+
+/* calendar override */
+.react-calendar {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 16px;
+}
+
+.react-calendar__navigation button {
+  color: #fff;
+  min-width: 44px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.react-calendar__navigation button:hover,
+.react-calendar__navigation button:focus {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: #aeb6c2;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.react-calendar__tile {
+  position: relative;
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 8px;
+  transition: 0.2s ease;
+}
+
+.react-calendar__tile:hover {
+  background: rgba(255, 77, 109, 0.12);
+}
+
+.react-calendar__tile--now {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.react-calendar__tile--active {
+  background: linear-gradient(135deg, #ff4d6d, #ff7aa2) !important;
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 77, 109, 0.34);
+}
+
+/* days with events */
+.has-event {
+  position: relative;
+}
+
+.has-event::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff4d6d;
+  box-shadow: 0 0 10px rgba(255, 77, 109, 0.85);
+}
+
+/* selected day block */
+.today-events {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.event-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.event-mini-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d6d, #ff7aa2);
+  box-shadow: 0 0 10px rgba(255, 77, 109, 0.45);
+}
+
+/* events list */
+.events-list {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.events-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.events-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.event-card {
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.25s ease;
+}
+
+.event-card:hover {
+  background: rgba(255, 77, 109, 0.12);
+  border-color: rgba(255, 77, 109, 0.18);
+  box-shadow: 0 0 14px rgba(255, 77, 109, 0.14);
+}
+
+.event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.event-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.event-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d6d, #ff7aa2);
+  box-shadow: 0 0 12px rgba(255, 77, 109, 0.45);
+  flex-shrink: 0;
+}
+
+.event-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.event-date {
+  font-size: 12px;
+  color: #aeb6c2;
+}
+
+.event-tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #ff7aa2;
+  background: rgba(255, 77, 109, 0.12);
+  border: 1px solid rgba(255, 77, 109, 0.16);
+  white-space: nowrap;
+}
+
+/* footer stats */
+.sessions-footer {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-box {
+  padding: 22px;
+}
+
+.stat-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ff7aa2;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stat-box h3 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.stat-box p {
+  color: #aeb6c2;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* empty text */
+.empty {
+  color: #8f98a8;
+  margin: 6px 0 0;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .sessions-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sessions-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .events-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .sessions-page {
+    padding: 24px;
+  }
+
+  .block-header,
+  .sub-block-header,
+  .event-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}

@@ -1,109 +1,291 @@
 .top-bar {
-    height: 70px;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    align-items: center;
+
+    padding: 12px 20px;
+
+    background: rgba(10, 15, 30, 0.85);
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    position: relative;
+    z-index: 9999;
 }
 
+/* SEARCH */
 .search-bar {
-    flex: 1;
-    max-width: 500px;
     position: relative;
+    width: 360px;
 }
 
 .search-input {
     width: 100%;
-    padding: 0.75rem 1rem 0.75rem 3rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    color: var(--text-primary);
-    transition: var(--transition);
-}
+    padding: 10px 14px 10px 36px;
 
-.search-input:focus {
-    outline: none;
-    border-color: var(--neon-red);
-    box-shadow: 0 0 0 3px rgba(255, 0, 64, 0.1);
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(15,23,42,0.6);
+    color: white;
 }
 
 .search-icon {
     position: absolute;
-    left: 1rem;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-dim);
+    color: #94a3b8;
 }
 
+/* SEARCH DROPDOWN */
+.search-dropdown {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+
+    background: rgba(15,23,42,0.95);
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    z-index: 99999;
+}
+
+.search-dropdown div {
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-dropdown div:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* CENTER */
+.topbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.center-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.center-row div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+.center-row i {
+    color: #94a3b8;
+}
+
+/* TICKER */
+.topbar-ticker {
+    width: 420px;
+    overflow: hidden;
+
+    mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+.ticker-track {
+    white-space: nowrap;
+    animation: tickerMove 25s linear infinite;
+}
+
+.ticker-track span {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.topbar-ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes tickerMove {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ACTIONS */
 .top-bar-actions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 15px;
 }
 
-.notification-btn {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
+/* ONLINE (СПРАВА) */
+.online-block.small {
+    padding: 5px 10px;
+    font-size: 12px;
+
+    background: rgba(0,255,150,0.08);
+    border: 1px solid rgba(0,255,150,0.2);
+    color: #4ade80;
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
+    gap: 5px;
+
+    border-radius: 999px;
+}
+
+.online-dot {
+    width: 6px;
+    height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #4ade80;
+
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.trend.up {
+    color: #4ade80;
+}
+
+.trend.down {
+    color: #ff4d6d;
+}
+
+/* MOOD */
+.topbar-status {
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 13px;
+    color: #cbd5f5;
+
     cursor: pointer;
-    transition: var(--transition);
+    transition: 0.2s;
 }
 
-.notification-btn:hover {
-    border-color: var(--neon-red);
-    color: var(--neon-red);
+.topbar-status:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255,0,100,0.3);
 }
 
+/* NOTIFICATION */
+.notification-btn {
+    position: relative;
+    cursor: pointer;
+}
 
 .notification-badge {
     position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 18px;
-    height: 18px;
-    background: var(--neon-crimson);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-    box-shadow: var(--shadow-glow-crimson);
+    top: -5px;
+    right: -6px;
+
+    background: #ff0040;
+    color: white;
+
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 999px;
 }
 
+/* USER */
 .user-menu {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    cursor: pointer;
-    transition: var(--transition);
+    position: relative;
 }
 
-.user-menu:hover {
-    border-color: var(--neon-red);
+.user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
 }
 
 .user-avatar {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    object-fit: cover;
 }
 
-.user-name {
-    font-weight: 500;
+/* DROPDOWN */
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: 45px;
+
+    width: 180px;
+    padding: 10px;
+
+    border-radius: 12px;
+
+    background: rgba(15,23,42,0.95);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    z-index: 99999;
+
+    animation: fadeIn 0.2s ease;
+}
+
+.user-dropdown div {
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #cbd5f5;
+
+    display: flex;
+    gap: 8px;
+}
+
+.user-dropdown div:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.user-dropdown .danger {
+    color: #ff4d6d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

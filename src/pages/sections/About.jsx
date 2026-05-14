@@ -1,23 +1,55 @@
-import "../../style/sections/About.css"
-
-
+import { useState, useEffect } from "react";
+import "../../style/sections/About.css";
 
 export default function About() {
+
+    const slides = [
+        {
+            title: "Safe Space",
+            text: "Your mental health journey starts here",
+            img: "https://picsum.photos/seed/1/900/300"
+        },
+        {
+            title: "Professional Help",
+            text: "Connect with licensed psychologists",
+            img: "https://picsum.photos/seed/2/900/300"
+        },
+        {
+            title: "Grow Daily",
+            text: "Track and improve your wellbeing",
+            img: "https://picsum.photos/seed/3/900/300"
+        }
+    ];
+
+    const [slide, setSlide] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSlide(prev => (prev + 1) % slides.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div id="about" className="page">
             <div className="about-container">
 
                 {/* HERO */}
                 <div className="about-hero glass-card">
+
+                    {/* SLIDER */}
+                    <div className="about-slider">
+                        <img src={slides[slide].img} className="slider-img" />
+
+                        <div className="slider-overlay">
+                            <h2>{slides[slide].title}</h2>
+                            <p>{slides[slide].text}</p>
+                        </div>
+                    </div>
+
                     <h1>About Axios</h1>
-                    <p
-                        style={{
-                            fontSize: "1.25rem",
-                            color: "var(--text-secondary)",
-                            maxWidth: "600px",
-                            margin: "0 auto"
-                        }}
-                    >
+                    <p>
                         Advanced Psychological Support Platform for the modern world
                     </p>
                 </div>
@@ -29,19 +61,45 @@ export default function About() {
                     </h2>
 
                     <div className="glass-card">
-                        <p
-                            style={{
-                                fontSize: "1.125rem",
-                                lineHeight: "1.8",
-                                color: "var(--text-secondary)"
-                            }}
-                        >
+                        <p>
                             At Axios, we believe that mental health support should be 
-                            accessible, affordable, and stigma-free. Our mission is to 
-                            create a safe, anonymous platform where anyone can find the 
-                            psychological support they need without judgment or fear of 
-                            exposure.
+                            accessible, affordable, and stigma-free.
                         </p>
+                    </div>
+                </div>
+
+                {/* FEATURES */}
+                <div className="profile-section">
+                    <h2 className="section-title">
+                        <i className="fas fa-star"></i> What We Offer
+                    </h2>
+
+                    <div className="values-grid">
+
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <i className="fas fa-comments"></i>
+                            </div>
+                            <h3>AI Chat</h3>
+                            <p>24/7 support from AI assistant</p>
+                        </div>
+
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <i className="fas fa-user-md"></i>
+                            </div>
+                            <h3>Experts</h3>
+                            <p>Licensed psychologists ready to help</p>
+                        </div>
+
+                        <div className="value-card">
+                            <div className="value-icon">
+                                <i className="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Progress</h3>
+                            <p>Track your mental health journey</p>
+                        </div>
+
                     </div>
                 </div>
 
@@ -52,20 +110,12 @@ export default function About() {
                     </h2>
 
                     <div className="values-grid">
-
                         <div className="value-card">
                             <div className="value-icon">
                                 <i className="fas fa-heart"></i>
                             </div>
                             <h3>Compassion</h3>
-                            <p
-                                style={{
-                                    color: "var(--text-secondary)",
-                                    marginTop: "0.5rem"
-                                }}
-                            >
-                                We approach every interaction with empathy and understanding.
-                            </p>
+                            <p>We approach every interaction with empathy</p>
                         </div>
 
                         <div className="value-card">
@@ -73,14 +123,7 @@ export default function About() {
                                 <i className="fas fa-shield-alt"></i>
                             </div>
                             <h3>Confidentiality</h3>
-                            <p
-                                style={{
-                                    color: "var(--text-secondary)",
-                                    marginTop: "0.5rem"
-                                }}
-                            >
-                                Your information is always secure and private.
-                            </p>
+                            <p>Your data is always secure</p>
                         </div>
 
                         <div className="value-card">
@@ -88,30 +131,23 @@ export default function About() {
                                 <i className="fas fa-universal-access"></i>
                             </div>
                             <h3>Accessibility</h3>
-                            <p
-                                style={{
-                                    color: "var(--text-secondary)",
-                                    marginTop: "0.5rem"
-                                }}
-                            >
-                                Mental health support should be available to everyone.
-                            </p>
+                            <p>Available for everyone</p>
                         </div>
+                    </div>
+                </div>
 
-                        <div className="value-card">
-                            <div className="value-icon">
-                                <i className="fas fa-rocket"></i>
-                            </div>
-                            <h3>Innovation</h3>
-                            <p
-                                style={{
-                                    color: "var(--text-secondary)",
-                                    marginTop: "0.5rem"
-                                }}
-                            >
-                                We continuously improve our platform and services.
-                            </p>
-                        </div>
+                {/* VIDEO */}
+                <div className="profile-section">
+                    <h2 className="section-title">
+                        <i className="fas fa-play"></i> How Axios Works
+                    </h2>
+
+                    <div className="glass-card video-block">
+                        <iframe
+                            src="https://www.youtube.com/embed/8jPQjjsBbIc"
+                            title="About Axios"
+                            allowFullScreen
+                        ></iframe>
                     </div>
                 </div>
 
@@ -121,77 +157,14 @@ export default function About() {
                         <i className="fas fa-chart-line"></i> Our Impact
                     </h2>
 
-                    <div className="glass-card">
-                        <div
-                            style={{
-                                display: "grid",
-                                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                                gap: "2rem",
-                                textAlign: "center"
-                            }}
-                        >
-                            <div>
-                                <div
-                                    style={{
-                                        fontSize: "3rem",
-                                        fontWeight: 700,
-                                        color: "var(--neon-red)"
-                                    }}
-                                >
-                                    50K+
-                                </div>
-                                <div style={{ color: "var(--text-secondary)" }}>
-                                    Active Users
-                                </div>
-                            </div>
-
-                            <div>
-                                <div
-                                    style={{
-                                        fontSize: "3rem",
-                                        fontWeight: 700,
-                                        color: "var(--neon-pink)"
-                                    }}
-                                >
-                                    500+
-                                </div>
-                                <div style={{ color: "var(--text-secondary)" }}>
-                                    Licensed Professionals
-                                </div>
-                            </div>
-
-                            <div>
-                                <div
-                                    style={{
-                                        fontSize: "3rem",
-                                        fontWeight: 700,
-                                        color: "var(--neon-crimson)"
-                                    }}
-                                >
-                                    1M+
-                                </div>
-                                <div style={{ color: "var(--text-secondary)" }}>
-                                    Sessions Completed
-                                </div>
-                            </div>
-
-                            <div>
-                                <div
-                                    style={{
-                                        fontSize: "3rem",
-                                        fontWeight: 700,
-                                        color: "var(--neon-orange)"
-                                    }}
-                                >
-                                    98%
-                                </div>
-                                <div style={{ color: "var(--text-secondary)" }}>
-                                    Satisfaction Rate
-                                </div>
-                            </div>
-                        </div>
+                    <div className="glass-card impact-block">
+                        <div>50K+ Users</div>
+                        <div>500+ Experts</div>
+                        <div>1M+ Sessions</div>
+                        <div>98% Satisfaction</div>
                     </div>
                 </div>
+                
 
             </div>
         </div>

@@ -1,6 +1,7 @@
-/* About */
-#about{
+/* ABOUT */
+#about {
     padding: 40px;
+    background: transparent;
 }
 
 .about-container {
@@ -8,55 +9,185 @@
     margin: 0 auto;
 }
 
+/* HERO */
 .about-hero {
-    background: linear-gradient(135deg, rgba(255, 0, 64, 0.1), rgba(255, 107, 107, 0.1));
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+
     padding: 3rem;
     text-align: center;
     margin-bottom: 3rem;
+
+    position: relative;
+    overflow: hidden;
 }
 
+/* NEON TOP LINE */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+
+    background: linear-gradient(90deg, #ff0040, #ff4dd2);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.3s;
+}
+
+.about-hero:hover::before {
+    transform: scaleX(1);
+}
+
+/* TITLE */
 .about-hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--neon-red), var(--neon-pink));
+
+    background: linear-gradient(135deg, #ff0040, #ff4dd2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* SUBTEXT */
+.about-hero p {
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* GRID */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin-bottom: 3rem;
 }
 
+/* CARD */
 .value-card {
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+
     padding: 2rem;
     text-align: center;
-    transition: var(--transition);
+
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
+/* HOVER */
 .value-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 0, 64, 0.3);
-    box-shadow: var(--shadow-glow);
+    transform: translateY(-6px);
+    border-color: rgba(255, 0, 100, 0.4);
+    box-shadow:
+        0 10px 40px rgba(255, 0, 100, 0.15),
+        0 0 20px rgba(255, 0, 100, 0.1);
 }
 
+/* TOP LINE */
+.value-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+
+    background: linear-gradient(90deg, #ff0040, #ff4dd2);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.3s;
+}
+
+.value-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* ICON */
 .value-icon {
     width: 60px;
     height: 60px;
+
     margin: 0 auto 1rem;
-    background: linear-gradient(135deg, rgba(255, 0, 64, 0.2), rgba(255, 107, 107, 0.2));
+
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 1.5rem;
-    color: var(--neon-red);
+
+    background: linear-gradient(135deg, rgba(255,0,100,0.2), rgba(255,0,100,0.05));
+    color: #ff4dd2;
+
+    box-shadow: 0 0 15px rgba(255, 0, 100, 0.2);
+}
+
+/* TEXT */
+.value-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.profile-section .glass-card{
+    background: rgba(15, 23, 42, 0.45);
+}
+
+
+/* SLIDER */
+.about-slider {
+    position: relative;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.slider-overlay {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.slider-overlay h2 {
+    font-size: 1.5rem;
+}
+
+/* VIDEO */
+.video-block iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    border: none;
+}
+
+/* IMPACT */
+.impact-block {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    gap: 1rem;
+    font-weight: 600;
+    color: white;
 }

@@ -1,0 +1,71 @@
+.tutorial-detail {
+  padding: 30px;
+  color: #fff;
+}
+
+.tutorial-detail h1 {
+  margin-bottom: 10px;
+}
+
+.tutorial-detail-description {
+  color: #b8c1cc;
+  margin-bottom: 25px;
+}
+
+.tutorial-section {
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.tutorial-section h2 {
+  margin-bottom: 15px;
+}
+
+.tutorial-article {
+  white-space: pre-line;
+  color: #d8dee9;
+  line-height: 1.7;
+}
+
+.quiz-block {
+  margin-bottom: 20px;
+}
+
+.quiz-question {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quiz-option {
+  background: #141a2a;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.quiz-option:hover {
+  border-color: #ff5c8a;
+  box-shadow: 0 0 12px rgba(255, 92, 138, 0.2);
+}
+
+.resource-link {
+  display: block;
+  margin-bottom: 10px;
+  color: #ff7aa2;
+  text-decoration: none;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}

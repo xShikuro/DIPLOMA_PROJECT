@@ -5,7 +5,7 @@ function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
 
   const toggleFAQ = () => {
-    setOpen(!open); // аналог item.classList.toggle('active')
+    setOpen(!open);
   };
 
   return (
@@ -25,7 +25,6 @@ function FAQItem({ question, answer }) {
 }
 
 export default function FAQ({ showNotification }) {
-  // аналог submitSupportForm
   const submitSupportForm = (event) => {
     event.preventDefault();
     showNotification?.("Support ticket submitted successfully!", "success");

@@ -1,8 +1,6 @@
 import "../style/pages/WelcomePage.css";
 
 
-
-
 function WelcomePage({ onEnter }) {
   return (
     <div id="welcome" className="page active">

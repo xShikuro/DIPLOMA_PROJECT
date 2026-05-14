@@ -7,7 +7,7 @@
     --shadow-glow: 0 0 20px rgba(255, 0, 64, 0.4);
   }
   
-  /* экран */
+  /* display */
   .welcome-screen {
     height: 100vh;
     display: flex;
@@ -18,7 +18,7 @@
     background: var(--bg-primary);
   }
   
-  /* сетка */
+  /* grid */
   .welcome-grid {
     position: absolute;
     width: 100%;
@@ -35,7 +35,7 @@
     100% { transform: translate(50px, 50px); }
   }
   
-  /* контент */
+  /* content */
   .welcome-content {
     text-align: center;
     z-index: 2;

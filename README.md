@@ -1,79 +1,72 @@
-Axios 🌿
+Axios – Psychological Support Platform
 
-A Mental Health Support Platform
+📌 Overview
 
-🔹 About the Project
+Axios is a modern web application providing psychological support services. Users can communicate with specialists, manage profiles, and access informational resources, all in a responsive and intuitive interface.
 
-Axios is a modern web platform providing users with a safe and anonymous space for psychological support. The goal of the project is to make professional help and mental health resources easily accessible, improving emotional well-being.
+⚡ Key Features
 
-🔹 Key Features
+User Authentication – secure login and registration
 
-🧠 Online consultations with licensed psychologists
+Profile Management – personal information and preferences
 
-💬 Anonymous chat rooms for discussing personal issues
+Chat System – real-time communication with specialists
 
-📚 Mental health resources and articles
+Dashboard – user-friendly overview of activities
 
-📝 Mood and progress tracker
+Informational Sections – About, FAQ, Reviews, and more
 
-🔒 Data privacy and security
+Integrated Bot – automated assistance
 
-🔹 Technologies
+Responsive Design – works on all devices
 
-Frontend: React, Tailwind CSS
+🛠️ Technologies
+Frontend
 
-Backend: Node.js, Express
+React.js + Vite
 
-Database: MongoDB
+JavaScript (ES6+)
 
-Authentication: JWT
+CSS Modules / Modular CSS
 
-Additional: Axios for API requests
+Backend / Services
 
-🔹 Installation & Setup
-# Clone the repository
-git clone https://github.com/your-username/axios-platform.git
+Node.js
 
-# Go into the project directory
-cd axios-platform
+Firebase (Auth, Database)
 
-# Install backend dependencies
-cd backend
+REST API
+
+Tools
+
+ESLint (code quality)
+
+Git & GitHub (version control)
+
+
+⚙️ Installation
+git clone <repo-url>
+cd Axios
 npm install
+npm run dev
 
-# Start backend server
-npm start
+(Optional) Add environment variables in .env for Firebase configuration
 
-# Install frontend dependencies
-cd ../frontend
-npm install
+🌱 Environment Variables
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+🔮 Future Improvements
 
-# Start frontend server
-npm start
+Role-based access
 
+Real-time notifications
 
-The platform will be accessible at http://localhost:3000.
+Advanced chat features
 
-🔹 Contributing
+Production deployment
 
-Fork the repository
+👨‍💻 Author
 
-Create a new branch: git checkout -b feature/your-feature-name
-
-Commit your changes: git commit -m "Description of your changes"
-
-Push to your fork: git push origin feature/your-feature-name
-
-Create a Pull Request
-
-🔹 Contact
-
-For questions or suggestions:
-
-✉ Email: support@axiosplatform.com
-
-💬 Telegram: @AxiosSupport
-
-🔹 License
-
-This project is licensed under the MIT License.
+Maks Mun
+Capstone Project – IT Park University
